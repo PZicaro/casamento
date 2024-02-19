@@ -12,7 +12,7 @@ function App() {
     <div className="container-title">
     <div className="content">
         <Noivos/>
-        <ButtonInterate cor={'#ffff'}>confirme sua presença</ButtonInterate>
+        <ButtonInterate cor={'#ffff'}>Venha nos ver casar</ButtonInterate>
 
     </div>
     </div>
@@ -45,7 +45,7 @@ function App() {
         <p>tenho vivido eternamente preso! <strong>"</strong></p>
       </div>
      <strong><p>Agradecemos por fazer parte deste momento tão especial em nossas vidas</p></strong> 
-     <ButtonInterate cor={'#ffff'}>confirme sua presença</ButtonInterate>
+     <ButtonInterate cor={'#FFBE98'}>confirme sua presença</ButtonInterate>
       
     </div>
 

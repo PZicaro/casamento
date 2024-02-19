@@ -1,7 +1,7 @@
 import { CounterStyle, NumberStyle, TextStyle } from '../Styles/counter.style';
 
 type CounterProps = {
-    title: String;
+    title: string;
     number: number;
 }
 function Counter ( {title, number }: CounterProps )  {

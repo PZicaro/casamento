@@ -3,7 +3,7 @@ import '../Styles/style.button.css'
 import { ButtonNoivos } from '../Styles/button.style';
 interface ButtonInterateProps  {
     children: String;
-    cor: String;
+    cor: string;
     props? :React.ReactNode;
 }
 function ButtonInterate ({children, cor, ...props}:ButtonInterateProps){

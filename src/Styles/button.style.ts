@@ -4,7 +4,7 @@ export const RobotoFont = css`
   @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 `
 interface Props {
-    backgroundColor: String;
+    backgroundColor: string;
 }
 export const ButtonNoivos= styled.button<Props> `
 border-radius: 40px;
