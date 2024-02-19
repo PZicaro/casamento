@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap');
+@import 'bootstrap/dist/css/bootstrap.min.css';
+*{
+   margin: 0;
+   padding: 0;
+   
+  
+     
+}
+body{
+    background-color:  #ffffff;
+    overflow-x: hidden;
+}
+.container-title{
+    background-image: url(../imagens/casamento.jpg);
+    max-width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-family: "Ballet", cursive;
+ 
+}
+.count {
+    background-color: #FFBE98;
+    max-width: 100vw;
+    height: 50vh;
+}
+.container-section{
+    width: 100vw;
+    height: 100vh;
+
+}
+.tittle-count{
+    color: aliceblue;
+    width: 100%;
+    padding-top: 0.5em;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.count-content{
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+.container-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.poema{
+    margin: 2rem 0 2rem 0;
+    font-style: italic;
+    align-items: center;
+    
+}
