@@ -1,7 +1,7 @@
-import '../Styles/style.noivos.css'
+import { NamesNoivos } from '../Styles/noivos.style';
 function Noivos (){
     return(
-        <h1>Letícia e Ícaro</h1>
+        <NamesNoivos>Letícia e Ícaro</NamesNoivos>
     )
 }
 export default Noivos;
