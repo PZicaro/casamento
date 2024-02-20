@@ -16,8 +16,9 @@ border-radius: 40px;
     font-style: normal;
     transition: 0.5s;
     border: none;
+    margin-top: 2rem;
     &:hover{
         opacity: 0.5;
     }
-
+    
 `
