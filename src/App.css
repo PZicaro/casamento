@@ -60,8 +60,37 @@ body{
     align-items: center;
 }
 .poema{
-    margin: 2rem 0 2rem 0;
+    margin: 2rem 0 4rem 0;
     font-style: italic;
     align-items: center;
     
 }
+.search{
+    width: 280px;
+    margin-top: 30px;
+}
+.container-forms{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+.button-search{
+    border: solid 2px #FFBE98;
+    color: #FFBE98;
+
+}
+.button-search:hover{
+    background-color: #FFBE98;
+    border: #FFBE98;
+}
+body::-webkit-scrollbar-thumb {
+    border-radius: 20px;  
+    background-color: grey;     /* roundness of the scroll thumb */
+  }
+  body::-webkit-scrollbar {
+    width: 6px;          
+  }
+ 

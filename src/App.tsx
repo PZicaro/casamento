@@ -3,6 +3,7 @@ import Noivos from './components/Noivos';
 import ButtonInterate from './components/ButtonInterate';
 import Counter from './components/Counter';
 import useCountDown from './hooks/useCountDown';
+import { Button, Form, InputGroup } from 'react-bootstrap';
 
 function App() {
   const [day, hour,minutes,second] = useCountDown('Jan 25, 2025 19:00:00')
@@ -12,11 +13,13 @@ function App() {
     <div className="container-title">
     <div className="content">
         <Noivos/>
+        <a href="#count">
         <ButtonInterate cor={'#ffff'}>Venha nos ver casar</ButtonInterate>
+        </a>
 
     </div>
     </div>
-    <div className="count">
+    <div id='count' className="count">
     <div className="tittle-count">
         <h3>Quantos dias faltam para o casamento</h3>
       </div>
@@ -45,8 +48,31 @@ function App() {
         <p>tenho vivido eternamente preso! <strong>"</strong></p>
       </div>
      <strong><p>Agradecemos por fazer parte deste momento tão especial em nossas vidas</p></strong> 
+     <a href="#presenca">
      <ButtonInterate cor={'#FFBE98'}>confirme sua presença</ButtonInterate>
+      </a>
       
+    </div>
+    <div className="container-section">
+      <div id='presenca' className="container-forms">
+        <strong><p>Confirme sua presença colocando o seu número de telefone</p></strong>
+       
+      <div className="search">
+    <InputGroup className="mb-3">
+        <Form.Control
+          placeholder="Número de telefone"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+        <Button className='button-search' variant="outline-secondary" id="button-addon2">
+          search
+        </Button>
+      </InputGroup>
+
+      </div>
+      <p>Clique <strong>aqui</strong> para ir para o nosso enxoval</p>
+      
+      </div>
     </div>
 
     </>
