@@ -1,8 +1,6 @@
-import Button from 'react-bootstrap/Button';
-import '../Styles/style.button.css'
 import { ButtonNoivos } from '../Styles/button.style';
 interface ButtonInterateProps  {
-    children: String;
+    children: string;
     cor: string;
     props? :React.ReactNode;
 }
