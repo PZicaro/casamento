@@ -4,7 +4,7 @@ interface ButtonInterateProps  {
     cor: string;
     props? :React.ReactNode;
 }
-function ButtonInterate ({children, cor, ...props}:ButtonInterateProps){
+function ButtonInterate ({children, cor}:ButtonInterateProps){
     return(
  <ButtonNoivos  backgroundColor={cor} >{children}</ButtonNoivos>
     )
