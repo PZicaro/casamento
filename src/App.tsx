@@ -1,12 +1,103 @@
 import './App.css'
+
 import Noivos from './components/Noivos';
 import ButtonInterate from './components/ButtonInterate';
 import Counter from './components/Counter';
 import useCountDown from './hooks/useCountDown';
+
 import { Button, Form, InputGroup } from 'react-bootstrap';
+
+
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
+
+import { useEffect, useState } from 'react';
+
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDuJq4DUBxlaaUwquXELx5fAuUC2LjGt3w",
+  authDomain: "casamento-cb4ec.firebaseapp.com",
+  projectId: "casamento-cb4ec",
+  storageBucket: "casamento-cb4ec.appspot.com",
+  messagingSenderId: "378985239166",
+  appId: "1:378985239166:web:b0999d6c9b47432bcebe2f",
+  measurementId: "G-2LN1THR9HP"
+};
+
+interface Guest {
+  id: any;
+  name: string;
+  confirm: boolean;
+  email: string;
+  phone?: string; // A propriedade telefone é opcional
+}
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 function App() {
   const [day, hour,minutes,second] = useCountDown('Jan 25, 2025 19:00:00')
+  const [name, setName] = useState<string>('');
+  const  [ phone, setPhone] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [guests, setGuests] = useState<Guest[]>([]);
+  const [value, setValue] = useState<string>('');
+  const [error, setError] = useState<string[]>([]);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPhone(event.target.value);
+  }
+  const handleClick = async () => {
+    guests.forEach(async (prop) => {
+      if (prop.phone === phone) {
+        setName(prop.name);
+        const confirm = window.confirm(`Deseja confirmar a presença de ${prop.name}?`);
+        if (confirm) {
+          try {
+            const guestRef = doc(db, 'guests', prop.id);
+            await updateDoc(guestRef, {
+              confirm: true
+            });
+            alert(`Presença de ${prop.name} confirmada com sucesso!`);
+          } catch (error) {
+            console.error('Erro ao atualizar o documento:', error);
+            alert('Erro ao confirmar presença. Por favor, tente novamente.');
+          }
+        }
+      }else{
+        
+      }
+    });
+    setValue('');
+  };
+  
+  const handleKeyPress = (event: { key: string; }) => {
+    if (event.key === 'Enter') {
+      handleClick();
+    }
+  };
+
+  const db = getFirestore(app);
+  const userCollectionRef = collection(db, 'guests')
+
+  useEffect(() => {
+    const fetchGuests = async () => {
+      const db = getFirestore();
+      const guestCollection = collection(db, 'guests');
+      const querySnapshot = await getDocs(guestCollection);
+      const guestsData: Guest[] = querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      })) as Guest[];
+      setGuests(guestsData);
+    };
+
+    fetchGuests(); // Chamando a função diretamente dentro do useEffect
+  }, []); 
+
 
   return (
     <>
@@ -58,18 +149,21 @@ function App() {
         <strong><p>Confirme sua presença colocando o seu número de telefone</p></strong>
        
       <div className="search">
-    <InputGroup className="mb-3">
+    <InputGroup   onChange={handleChange} onKeyPress={handleKeyPress} className="mb-3">
         <Form.Control
-          placeholder="Número de telefone"
+          onChange={(event) => setValue(event.target.value)} 
+          value ={value}
+          placeholder="(00) 999999999"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
         />
-        <Button className='button-search' variant="outline-secondary" id="button-addon2">
+        <Button onClick={handleClick} className='button-search' variant="outline-secondary" id="button-addon2">
           search
         </Button>
       </InputGroup>
-
       </div>
+   
+      
       <p>Clique <strong>aqui</strong> para ir para o nosso enxoval</p>
       
       </div>
