@@ -68,6 +68,10 @@ body {
   margin: 2rem 0 4rem 0;
   font-style: italic;
   align-items: center;
+  text-align: center;
+}
+p{
+  text-align: center;
 }
 
 .search {

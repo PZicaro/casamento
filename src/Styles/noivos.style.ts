@@ -6,5 +6,6 @@ export const NamesNoivos = styled.div`
     font-style: normal;
     color: aliceblue;
     font-size: 8em;
+    text-align: center;
 
 `
